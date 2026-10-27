@@ -11,11 +11,14 @@ export const Dashboard = () => {
             setUsers(response.data.user)
         })
     },[filter])
-    return <div className="bg-slate-600 h-screen">
+    return <div className="bg-slate-100 h-screen">
         <div className="p-2">
             <div className="flex justify-between p-4 border-b shadow-md">
             <div>Payment App</div>
-            <div>Hello</div>
+            <div className="flex gap-2">Hello <div onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/signin");
+                }} className="font-semibold cursor-pointer">Logout</div></div>
             </div>
             <div className="font-semibold pb-9 pl-4">Your Balance Rs 10000000</div>
             <div className="font-semibold pb-2 pl-4">Users</div>
